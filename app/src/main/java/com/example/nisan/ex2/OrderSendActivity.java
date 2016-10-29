@@ -8,7 +8,6 @@ public class OrderSendActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.ordersend_title);
         setContentView(R.layout.activity_order_send);
     }
 }
