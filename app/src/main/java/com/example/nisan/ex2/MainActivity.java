@@ -1,5 +1,6 @@
 package com.example.nisan.ex2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -93,15 +94,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeOrder(View view){
-        //TODO: validate the inputs before enabing the button
         orderButton = (Button) findViewById(R.id.button_id);
         numInputText = (EditText) findViewById(R.id.input_id);
         foodCheckbox = (CheckBox) findViewById(R.id.checkbox_id);
 
-        Toast.makeText(getApplicationContext(),"Order sent",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"Order sent",Toast.LENGTH_SHORT).show();
         orderButton.setEnabled(false);
         numInputText.setText("");
         foodCheckbox.setChecked(false);
+
+        Intent intent = new Intent(this, OrderSendActivity.class);
+        startActivity(intent);
 
     }
 

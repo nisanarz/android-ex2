@@ -5,4 +5,6 @@
     <string name="input_hint_content">Type here...</string>
     <string name="checkbox_title">With food</string>
     <string name="button_content">Make order</string>
+    <string name="sent_massage_cont">Your order has been sent!</string>
+    <string name="ordersend_title">OrderSent</string>
 </resources>
