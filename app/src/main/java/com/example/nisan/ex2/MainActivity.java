@@ -40,11 +40,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String inputText = (String) s.toString();
-                int sheep_num = 0;
-                if (inputText.length() > 0) {
-                    sheep_num = Integer.parseInt(inputText);
+                double sheep_num = 0;
+                if (inputText.length() > 0 || (inputText.length() > 0 && inputText.length() < 10)) {
+                    sheep_num = Double.parseDouble(inputText);
                 }
-                seekBar.setProgress(sheep_num);
+                if (sheep_num >100){
+                    seekBar.setProgress(seekBar.getMax());
+                }
+                else {
+                    seekBar.setProgress((int)sheep_num);
+                }
                 checkButtonValid();
             }
 
@@ -118,19 +123,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean checkEditTextInput(EditText et){
-        //TODO: validate the input.text value.
-//        if (et.getText().toString().isEmpty()){
-//            return false;
-//        }
         String text = et.getText().toString();
-        int sheep_num = 0;
-        if (text.length() > 0) {
-            sheep_num = Integer.parseInt(text);
+        double sheep_num = 0;
+        boolean flag=false;
+        if (text.length() > 0 || (text.length() > 0 && text.length() < 10)) {
+
+            sheep_num = Double.parseDouble(text);//Integer.parseInt(text);
+            if (sheep_num > 0 && sheep_num < Integer.MAX_VALUE) {
+                return true;
+            }
+            else {
+                flag=false;
+            }
         }
-        if (sheep_num > 0) {
-            return true;
-        }
-        return false;
+        return flag;
     }
 
 }
